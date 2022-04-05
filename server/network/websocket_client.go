@@ -11,9 +11,9 @@ import (
 type WSClient struct {
 	sync.Mutex
 	Addr             string
-	ConnNum          uint
+	ConnNum          int
 	ConnectInterval  time.Duration
-	PendingWriteNum  uint
+	PendingWriteNum  int
 	MaxMsgLen        uint32
 	HandshakeTimeout time.Duration
 	AutoReconnect    bool
@@ -78,18 +78,57 @@ func (client *WSClient) dial() *websocket.Conn {
 
 		log.Release("connect to %v error: %v", client.Addr, err)
 		time.Sleep(client.ConnectInterval)
-		conn
+		continue
 	}
 }
 
 func (client *WSClient) connect() {
-    defer client.wg.Done()
+	defer client.wg.Done()
 
 reconnect:
-    conn := client.dial()
-    if conn == nil {
-        return
-    }
+	conn := client.dial()
+	if conn == nil {
+		return
+	}
 
+	conn.SetReadLimit(int64(client.MaxMsgLen))
 
+	client.Lock()
+	if client.closeFlag {
+		client.Unlock()
+		conn.Close()
+		return
+	}
 
+	client.conns[conn] = struct{}{}
+	client.Unlock()
+
+	wsConn := newWSConn(conn, client.PendingWriteNum, client.MaxMsgLen)
+
+	agent := client.NewAgent(wsConn)
+	agent.Run()
+
+	wsConn.Close()
+	client.Lock()
+	delete(client.conns, conn)
+	client.Unlock()
+	agent.OnClose()
+
+	if client.AutoReconnect {
+		time.Sleep(client.ConnectInterval)
+		goto reconnect
+	}
+}
+
+func (client *WSClient) Close() {
+	client.Lock()
+	client.closeFlag = true
+	for conn := range client.conns {
+		conn.Close()
+	}
+
+	client.conns = nil
+	client.Unlock()
+
+	client.wg.Wait()
+}

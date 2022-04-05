@@ -1,0 +1,21 @@
+package model
+
+import (
+	"gorm.io/datatypes"
+	"gorm.io/gorm"
+)
+
+type PinType string
+
+const (
+	PinTypeStarredPlace   PinType = "STARRED"
+	PinTypeFavouritePlace PinType = "FAVOURITE"
+	PintTypeOwnList       PinType = "OWNLIST"
+)
+
+type PinForm struct {
+	gorm.Model
+	ID         string `json:"id" gorm:"default:generated();"`
+	pinType    PinType
+	locationID string
+}
