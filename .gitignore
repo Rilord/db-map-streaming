@@ -1,2 +1,4 @@
 server/vendor/**
+client/vendor/**
 server/.vim/
+vim-open-go-src
