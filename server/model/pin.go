@@ -1,7 +1,6 @@
 package model
 
 import (
-	"gorm.io/datatypes"
 	"gorm.io/gorm"
 )
 
@@ -13,9 +12,12 @@ const (
 	PintTypeOwnList       PinType = "OWNLIST"
 )
 
-type PinForm struct {
+type Pin struct {
 	gorm.Model
 	ID         string `json:"id" gorm:"default:generated();"`
 	pinType    PinType
 	locationID string
+	tags       string
+	authorID   string
+	postID     string
 }
