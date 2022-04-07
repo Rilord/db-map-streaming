@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-07T13:02:54.909Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15" etag="maQ3fGrWILZiOvStTisD" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-07T13:05:45.685Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15" etag="OVVx_pQ7h4PCAa4azR1O" version="17.4.0" type="github">
   <diagram id="8GKJhzsX7YFNm9nHHDpj" name="er">
     <mxGraphModel dx="925" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -253,8 +253,8 @@
         <mxCell id="oaS1xbAYaOrkJZflwz6Q-135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=ERmany;endFill=0;" parent="1" source="oaS1xbAYaOrkJZflwz6Q-132" target="oaS1xbAYaOrkJZflwz6Q-7" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="260" y="951" />
-              <mxPoint x="260" y="805" />
+              <mxPoint x="300" y="951" />
+              <mxPoint x="300" y="805" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -272,8 +272,8 @@
         <mxCell id="oaS1xbAYaOrkJZflwz6Q-139" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=ERmany;endFill=0;" parent="1" source="oaS1xbAYaOrkJZflwz6Q-95" target="oaS1xbAYaOrkJZflwz6Q-133" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="260" y="1051" />
-              <mxPoint x="260" y="981" />
+              <mxPoint x="300" y="1051" />
+              <mxPoint x="300" y="981" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -311,6 +311,12 @@
         </mxCell>
         <mxCell id="EYmendGBQnT0CR90z1qS-4" value="authorID" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="320" y="420" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EYmendGBQnT0CR90z1qS-5" value="itineraryPost" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="200" y="1000" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="EYmendGBQnT0CR90z1qS-6" value="pinsPost" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="200" y="910" width="60" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
