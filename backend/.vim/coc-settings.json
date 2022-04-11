@@ -1,7 +1,0 @@
-{
-  "go.goplsOptions": {
-    "completeUnimported": true
-  },
-  "go.goplsPath": "/Users/kodor/go/bin/gopls"
-
-}
