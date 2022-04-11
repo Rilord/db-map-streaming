@@ -2,72 +2,75 @@ package ports
 
 import "game-server/internal/core/domain"
 
-type MapTilePaginationConfig struct {
-	First *int
-	After *string
-}
-
 type MapTileDB interface {
-	Get(id string) (model.Tile, error)
-	Pagination(config MapTilePaginationConfig) error
+	Get(id string) (domain.Tile, error)
 }
 
 type VectorObjectDB interface {
-	Get(id string) (model.VectorObject, error)
-	Create(object *model.VectorObject) error
-}
-
-type UserPaginationConfig struct {
-	model.UserFilter
-	First *int
-	After *string
+	Get(id string) (domain.VectorObject, error)
+	Create(object *domain.VectorObject) error
 }
 
 type UserDB interface {
-	Get(id string) (model.User, error)
-	Create(user *model.User) error
-	Pagination(config UserPaginationConfig) (model.UserConnection, error)
+	Get(id string) (domain.User, error)
+	Create(user *domain.User) error
 }
 
 type PinDB interface {
-	Get(id string) (model.Pin, error)
-	Create(pin *model.Pin) error
-	Update(pin *model.Pin) error
+	Get(id string) (domain.Pin, error)
+	Create(pin *domain.Pin) error
+	Update(pin *domain.Pin) error
+}
+
+type LocationDB interface {
+	Get(id string) (domain.Location, error)
+	Create(location *domain.Location) error
+	Update(location *domain.Location) error
 }
 
 type ChangeRequestDB interface {
-	Get(id string) (model.ChangeRequest, error)
-	Create(request *model.ChangeRequest) error
-	Merge(id string) error
+	Get(id string) (domain.ChangeRequest, error)
+	Create(request *domain.ChangeRequest) error
+	Delete(id string) error
+}
+
+type ArticleDB interface {
+	Get(id string) (domain.Article, error)
+	Create(article *domain.Article) error
+	Delete(id string) error
 }
 
 type ItineraryDB interface {
-	Get(id string) (model.Itinerary, error)
-	Create(itinerary *model.Itinerary) error
-	Update(itinerary *model.Itinerary) error
+	Get(id string) (domain.Itinerary, error)
+	Create(itinerary *domain.Itinerary) error
+	Update(itinerary *domain.Itinerary) error
 }
 
 type RoleFindConfig struct {
 	UserIDs []string
-	Types   []model.RoleType
+	Types   []domain.RoleType
 	Limit   int
 }
 
 type RoleDB interface {
-	Find(config RoleFindConfig) ([]model.Role, error)
+	Find(config RoleFindConfig) ([]domain.Role, error)
 }
 
 type LayerDB interface {
-	Get(id string) (model.Layer, error)
+	Get(id string) (domain.Layer, error)
 }
 
 type RasterDB interface {
-	Get(id string) (model.Raster, error)
+	Get(id string) (domain.Raster, error)
 }
 
 type DB interface {
 	User() UserDB
 	Role() RoleDB
 	Pin() PinDB
+	ChangeRequest() ChangeRequestDB
+	Layer() LayerDB
+	Raster() RasterDB
+	Location() LocationDB
 	Itinerary() ItineraryDB
 }

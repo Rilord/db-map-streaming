@@ -1,4 +1,4 @@
-package model
+package domain
 
 type Tile struct {
 	ID        string `json:"id"`

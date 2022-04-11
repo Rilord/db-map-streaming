@@ -1,4 +1,4 @@
-package model
+package domain
 
 type Location struct {
 	ID       string `json:"id"`
