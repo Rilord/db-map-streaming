@@ -9,6 +9,7 @@ const (
 )
 
 type Role struct {
+	ID     string `json:"id"`
 	Type   RoleType
 	UserID string
 }

@@ -1,6 +1,6 @@
-package interfaces
+package ports
 
-import "game-server/model"
+import "game-server/internal/core/domain"
 
 type MapTilePaginationConfig struct {
 	First *int
@@ -30,7 +30,7 @@ type UserDB interface {
 }
 
 type PinDB interface {
-	Get(id string) (mode.Pin, error)
+	Get(id string) (model.Pin, error)
 	Create(pin *model.Pin) error
 	Update(pin *model.Pin) error
 }
@@ -65,7 +65,7 @@ type RasterDB interface {
 	Get(id string) (model.Raster, error)
 }
 
-type db interface {
+type DB interface {
 	User() UserDB
 	Role() RoleDB
 	Pin() PinDB

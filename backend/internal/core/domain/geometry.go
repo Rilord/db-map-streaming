@@ -1,11 +1,6 @@
 package model
 
-import (
-	"github.com/lib/pq"
-	"gorm.io/gorm"
-)
-
-type GeometryType int64
+type GeometryType int8
 
 const (
 	POINT           GeometryType = 0
@@ -18,10 +13,8 @@ const (
 )
 
 type VectorObject struct {
-	gorm.Model
-	ID string `gorm:default:generated();"json:"id"`
-
+	ID       string `json:"id"`
 	geomType GeometryType
-	data     pq.Float32Array `gorm:"type:float[]"`
+	data     []float32
 	tileID   string
 }

@@ -1,10 +1,7 @@
 package model
 
-import "gorm.io/gorm"
-
 type Article struct {
-	gorm.Model
-	ID       string `gorm:default:generated();"json:"id"`
+	ID       string `json:"id"`
 	name     string
 	text     string
 	textHTML string

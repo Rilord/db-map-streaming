@@ -2,15 +2,14 @@ package model
 
 import (
 	"database/sql"
-	"time"
 )
 
 type UserRole string
 
 type User struct {
-	ID           string    `gorm:default:generated();" json:"id"`
-	SignedUpAt   time.Time `gorm:default:now();"`
-	updatedAt    time.Time
+	ID           string `json:"id"`
+	SignedUpAt   sql.NullTime
+	updatedAt    sql.NullTime
 	name         string
 	email        string
 	RemovedAt    sql.NullTime

@@ -1,7 +1,5 @@
 package model
 
-import "gorm.io/gorm"
-
 type ItineraryType string
 
 const (
@@ -10,8 +8,7 @@ const (
 )
 
 type Itinerary struct {
-	gorm.Model
-	ID       string `gorm:"default:generated();" json:"id"`
+	ID       string `json:"id"`
 	name     string
 	Type     ItineraryType
 	tags     string

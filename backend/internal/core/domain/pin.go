@@ -1,9 +1,5 @@
 package model
 
-import (
-	"gorm.io/gorm"
-)
-
 type PinType string
 
 const (
@@ -13,8 +9,7 @@ const (
 )
 
 type Pin struct {
-	gorm.Model
-	ID         string `json:"id" gorm:"default:generated();"`
+	ID         string `json:"id"`
 	pinType    PinType
 	locationID string
 	tags       string
