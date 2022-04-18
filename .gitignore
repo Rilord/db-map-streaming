@@ -1,5 +1,5 @@
 vendor/
 vendor/
-server/.vim/
+.vim/
 .DS_Store
 vim-open-go-src
