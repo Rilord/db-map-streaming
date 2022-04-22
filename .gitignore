@@ -1,5 +1,28 @@
-vendor/
-vendor/
-server/.vim/
+# mac related
 .DS_Store
+
+# Golang
+
+vendor/
+vendor/
+.vim/
 vim-open-go-src
+
+# npm, yarn etc.
+
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+.npm
+*.tgz
+
+# dotenv files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
