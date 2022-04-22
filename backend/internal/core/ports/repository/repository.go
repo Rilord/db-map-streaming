@@ -68,6 +68,7 @@ type ArticleRepository interface {
 	GetItineraries(article_id string) ([]*domain.Itinerary, error)
 	GetChangeRequests(article_id string) ([]*domain.ChangeRequest, error)
 	GetComments(article_id string) ([]*domain.Comment, error)
+	Update(domain.Article) error
 	Delete(article_id string) error
 }
 

@@ -8,6 +8,5 @@ type ArticleInteractor interface {
 	Update(article domain.Article) error
 	Pins(article_id string) ([]domain.Pin, error)
 	Itineraries(article_id string) ([]domain.Itinerary, error)
-	Block(article_id string) error
 	Delete(article_id string) error
 }
