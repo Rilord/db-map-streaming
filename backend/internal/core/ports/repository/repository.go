@@ -58,7 +58,7 @@ type LocationRepository interface {
 type ChangeRequestRepository interface {
 	Add(domain.ChangeRequest) error
 	Get(request_id string) (domain.ChangeRequest, error)
-	Delete(domain.ChangeRequest) error
+	Delete(request_id string) error
 }
 
 type ArticleRepository interface {
