@@ -56,13 +56,13 @@ type LocationRepository interface {
 }
 
 type ChangeRequestRepository interface {
-	Add(domain.ChangeRequest) error
+	Add(domain.ChangeRequest) (string, error)
 	Get(request_id string) (domain.ChangeRequest, error)
 	Delete(request_id string) error
 }
 
 type ArticleRepository interface {
-	Add(domain.Article) error
+	Add(domain.Article) (string, error)
 	Get(article_id string) (domain.Article, error)
 	GetPins(article_id string) ([]*domain.Pin, error)
 	GetItineraries(article_id string) ([]*domain.Itinerary, error)
@@ -73,7 +73,7 @@ type ArticleRepository interface {
 }
 
 type ItineraryRepository interface {
-	Add(itinerary *domain.Itinerary) error
+	Add(itinerary *domain.Itinerary) (string, error)
 	Get(itinerary_id string) (domain.Itinerary, error)
 	Update(itinerary *domain.Itinerary) error
 	Delete(itinerary_id string) error

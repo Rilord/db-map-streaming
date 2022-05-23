@@ -1,4 +1,4 @@
-package internal
+package maphub
 
 type App struct {
 }
